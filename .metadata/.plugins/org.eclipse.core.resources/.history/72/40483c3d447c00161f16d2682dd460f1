@@ -1,0 +1,44 @@
+package horn.mcts;
+
+import java.util.List;
+
+public class ConnectFourGame implements GameBoard
+{
+    private Player p1 = new Player();
+    private Player p2 = new Player();
+    
+    @Override
+    public void initialize()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public Player getCurrentPlayer()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public GameState getNextGameState()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Integer> getLegalMoves()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int winner()
+    {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+}

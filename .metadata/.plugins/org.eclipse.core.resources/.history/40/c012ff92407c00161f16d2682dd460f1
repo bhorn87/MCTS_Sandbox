@@ -1,0 +1,7 @@
+package horn.mcts;
+
+public abstract class AbstractBoard 
+{
+    Player p1;
+    Player p2;
+}

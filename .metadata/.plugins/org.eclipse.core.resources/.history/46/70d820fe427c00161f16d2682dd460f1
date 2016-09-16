@@ -1,0 +1,15 @@
+package horn.mcts;
+
+import java.util.List;
+
+public interface GameBoard 
+{
+    Player p1 = new Player();
+    Player p2 = new Player();
+    
+    public void initialize();
+    public Player getCurrentPlayer();
+    public GameState getNextGameState();
+    public List<> getLegalMoves();
+    public int winner();
+}

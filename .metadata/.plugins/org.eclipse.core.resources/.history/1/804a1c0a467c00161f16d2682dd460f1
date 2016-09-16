@@ -1,0 +1,9 @@
+package horn.mcts;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GameState
+{
+    public int currentPlayer = -1;
+}
