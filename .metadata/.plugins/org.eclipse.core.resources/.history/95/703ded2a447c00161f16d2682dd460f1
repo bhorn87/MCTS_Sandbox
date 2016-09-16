@@ -1,6 +1,0 @@
-package horn.mcts;
-
-public class GameState
-{
-    public Player p1 = new Player();
-}

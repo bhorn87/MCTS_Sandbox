@@ -1,6 +1,0 @@
-package horn.mcts;
-
-public class GameState
-{
-    public List<Player> players = new ArrayList<Player>();
-}
