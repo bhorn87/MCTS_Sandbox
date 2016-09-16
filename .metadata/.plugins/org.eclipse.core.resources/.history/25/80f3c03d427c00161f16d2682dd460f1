@@ -1,0 +1,7 @@
+package horn.mcts;
+
+public interface GameBoard 
+{
+    Player p1 = new Player();
+    Player p2 = new Player();
+}

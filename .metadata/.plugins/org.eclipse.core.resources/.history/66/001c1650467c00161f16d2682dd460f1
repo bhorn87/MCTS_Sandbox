@@ -1,0 +1,10 @@
+package horn.mcts;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GameState
+{
+    public int currentPlayer = -1;
+    public int[][] currentBoard = new int[7][6];
+}
