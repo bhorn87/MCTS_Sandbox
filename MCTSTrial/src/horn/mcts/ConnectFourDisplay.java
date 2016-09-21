@@ -5,8 +5,10 @@ public class ConnectFourDisplay
 
 	public static void main(String[] args) 
 	{
-		System.out.println("Built");
-
+		System.out.println("Starting");
+		ConnectFourGame g = new ConnectFourGame();
+		g.initialize();
+		g.winner(g.getStateHistory());
 	}
 
 }

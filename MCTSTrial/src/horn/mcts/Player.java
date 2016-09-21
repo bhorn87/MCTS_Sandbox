@@ -12,4 +12,9 @@ public class Player
     {
         return pName;
     }
+    
+    public String toString()
+    {
+        return pName;
+    }
 }
