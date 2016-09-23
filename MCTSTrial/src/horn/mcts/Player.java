@@ -17,4 +17,10 @@ public class Player
     {
         return pName;
     }
+    
+    public Player copy()
+    {
+        Player newPlayer = new Player(this.pName);
+        return newPlayer;
+    }
 }

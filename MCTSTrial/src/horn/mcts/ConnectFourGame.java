@@ -42,7 +42,33 @@ public class ConnectFourGame implements GameBoard
     @Override
     public GameState getNextGameState(GameState currentState, int move)
     {
-        return null;
+        GameState newState = currentState.copy();
+        if (newState.currentBoard[move][numRows-1] == 0)
+        {
+            for(int row = 0; row < numRows; row++)
+            {
+                if (newState.currentBoard[move][row] == 0)
+                {
+                    newState.currentBoard[move][row] = newState.currentPlayer;
+                    if (newState.currentPlayer == 1)
+                    {
+                        newState.currentPlayer = 2;
+                    }
+                    else
+                    {
+                        newState.currentPlayer = 1;
+                    }
+                    stateHistory.add(newState);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            System.out.println("INVALID MOVE CHOICE!");
+        }
+        
+        return newState;
     }
 
     @Override
@@ -77,6 +103,8 @@ public class ConnectFourGame implements GameBoard
     	{
     	    for (int row = 0; row < numRows; row++)
     	    {
+    	        //System.out.println("col: " + column + ",row: " + row + ",value: " + last.currentBoard[column][row]);
+    	        //printScoreArray(score);
     	        if (last.currentBoard[column][row] == 1)
     	        {
     	            // update row score
@@ -113,7 +141,7 @@ public class ConnectFourGame implements GameBoard
     	        else if (last.currentBoard[column][row] == 2)
     	        {
                     // update row score
-                    score[row] += 1;
+                    score[row] -= 1;
                     // update column score
                     score[numColumns + column] -= 1;
                     // update right diagonal score
@@ -217,4 +245,57 @@ public class ConnectFourGame implements GameBoard
     {
 		return stateHistory;
 	}
+    
+    public void printBoard()
+    {
+        GameState curr = this.stateHistory.get(stateHistory.size() - 1);
+        for (int row = 0; row < numRows; row++)
+        {
+            System.out.println("+-+-+-+-+-+-+-+");
+            for (int col = 0; col < numColumns; col++)
+            {
+                System.out.print("|"+curr.currentBoard[col][row]);
+                if (col == numColumns - 1)
+                {
+                    System.out.println("|");
+                }
+            }
+            if (row == numRows - 1)
+            {
+                System.out.println("+-+-+-+-+-+-+-+");
+            }
+        }
+    }
+    
+    public void printScoreArray(int[] scoreArray)
+    {
+        System.out.print("score[");
+        for (int index = 0; index < 25; index++)
+        {
+            if (index != 24)
+                System.out.print(scoreArray[index] + ",");
+            else
+                System.out.print(scoreArray[index]);
+        }
+        System.out.println("]");
+    }
+    
+    @Override
+    public ConnectFourGame copy()
+    {
+        ConnectFourGame tmp = new ConnectFourGame();
+        
+        tmp.numColumns = this.numColumns;
+        tmp.numRows = this.numRows;
+        tmp.p1 = this.p1.copy();
+        tmp.p2 = this.p2.copy();
+        List<GameState> newHistory = new ArrayList<GameState>();
+        for (GameState gs: stateHistory)
+        {
+            newHistory.add(gs.copy());            
+        }
+        tmp.stateHistory = newHistory;
+        
+        return tmp;
+    }
 }

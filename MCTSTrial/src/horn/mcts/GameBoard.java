@@ -9,4 +9,5 @@ public interface GameBoard
     public GameState getNextGameState(GameState g, int m);
     public List<?> getLegalMoves(List<GameState> history);
     public Player winner(List<GameState> history);
+    public GameBoard copy();
 }

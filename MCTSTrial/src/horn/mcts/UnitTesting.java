@@ -63,6 +63,16 @@ public class UnitTesting
         stateList.add(init);
         Player winner = game.winner(stateList);
         System.out.println("Winner: " + winner);
+        
+        
+        GameBoard g1 = new ConnectFourGame();
+        System.out.println("numColumns g1: " + ((ConnectFourGame)g1).numColumns);
+        GameBoard g2 = null;
+        g2 = g1.copy();
+        System.out.println("numColumns g2: " + ((ConnectFourGame)g2).numColumns);
+        ((ConnectFourGame)g2).numColumns = 10;
+        System.out.println("again numColumns g1: " + ((ConnectFourGame)g1).numColumns);
+        System.out.println("again numColumns g2: " + ((ConnectFourGame)g2).numColumns);
     }
 
 }
